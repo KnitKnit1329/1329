@@ -3,240 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Knitwear Studio | Преміальний в'язаний одяг</title>
+    <title>Авторський трикотаж | Ручна робота</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        /* Базові налаштування в стилі мінімалізму */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        :root {
+            --warm-beige: #f5f5f2;
+            --dark-grey: #333;
+            --accent: #8e7d6f;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #fdfbf9; /* Теплий преміальний відтінок білого */
-            color: #2c2a29; /* М'який чорний */
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            background-color: var(--warm-beige);
+            color: var(--dark-grey);
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
         }
 
-        /* Контейнер для обмеження ширини */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Шапка сайту (Навігація) */
         header {
-            padding: 40px 0;
-            border-bottom: 1px solid #f1eeea;
-        }
-
-        .nav-wrapper {
+            background: white;
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
         .logo {
-            font-size: 20px;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 32px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: bold;
         }
 
         nav a {
+            margin-left: 20px;
             text-decoration: none;
-            color: #76706b;
-            font-size: 14px;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
+            color: var(--dark-grey);
+            font-size: 0.9rem;
+            text-transform: uppercase;
         }
 
-        nav a:hover {
-            color: #2c2a29;
-        }
-
-        /* Геро-секція (Вступ) */
         .hero {
-            padding: 80px 0 60px 0;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            background: #e9e9e4; /* Сюди можна додати фонове фото */
+            padding: 0 20px;
         }
 
         .hero h1 {
-            font-family: "Georgia", serif; /* Елегантний засічний шрифт для заголовків */
-            font-size: 42px;
-            font-weight: 400;
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 10px;
         }
 
-        .hero p {
-            color: #76706b;
-            font-size: 16px;
-            max-width: 600px;
-            margin: 0 auto;
+        .section {
+            padding: 60px 10%;
         }
 
-        /* Галерея виробів (Грід у стилі Pinterest) */
-        .portfolio-grid {
+        h2 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            padding: 40px 0 100px 0;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
         }
 
-        .portfolio-item {
-            display: flex;
-            flex-direction: column;
-            background-color: #ffffff;
-            border-radius: 4px;
-            overflow: hidden;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-
-        /* Ефект легкого піднімання картки при наведенні */
-        .portfolio-item:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 28px rgba(44, 42, 41, 0.04);
-        }
-
-        .image-container {
-            width: 100%;
-            height: 480px; /* Фіксована висота для акуратного вирівнювання */
-            overflow: hidden;
-            background-color: #f7f5f2;
-        }
-
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Фото заповнює блок без деформації */
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .portfolio-item:hover .image-container img {
-            transform: scale(1.03); /* Легкий зум фото при наведенні */
-        }
-
-        /* Опис під фото */
-        .item-info {
-            padding: 24px 16px;
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
             text-align: center;
+            transition: transform 0.3s;
         }
 
-        .item-category {
-            font-size: 11px;
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background: #eee;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            background: var(--accent);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #9c948e;
-            margin-bottom: 8px;
+            font-size: 0.8rem;
+            border-radius: 4px;
         }
 
-        .item-title {
-            font-family: "Georgia", serif;
-            font-size: 18px;
-            font-weight: 400;
-            color: #2c2a29;
-            margin-bottom: 8px;
+        .cart-count {
+            background: var(--accent);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 50%;
+            font-size: 0.8rem;
         }
 
-        .item-details {
-            font-size: 13px;
-            color: #76706b;
+        .info-block {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 20px;
         }
 
-        /* Підвал сайту (Footer) */
         footer {
-            padding: 40px 0;
-            border-top: 1px solid #f1eeea;
             text-align: center;
-            font-size: 13px;
-            color: #9c948e;
-            letter-spacing: 0.5px;
-        }
-
-        /* Адаптивність для мобільних пристроїв */
-        @media (max-width: 900px) {
-            .portfolio-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 колонки на планшетах */
-                gap: 24px;
-            }
-            .image-container {
-                height: 400px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            header {
-                padding: 24px 0;
-            }
-            .nav-wrapper {
-                flex-direction: column;
-                gap: 16px;
-            }
-            .hero h1 {
-                font-size: 32px;
-            }
-            .portfolio-grid {
-                grid-template-columns: 1fr; /* 1 колонка на телефонах */
-                gap: 32px;
-            }
-            .image-container {
-                height: 450px;
-            }
+            padding: 40px;
+            font-size: 0.8rem;
+            color: #777;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container nav-wrapper">
-            <div class="logo">Knit.Studio</div>
-            <nav>
-                <ul>
-                    <li><a href="#">Колекції</a></li>
-                    <li><a href="#">Про бренд</a></li>
-                    <li><a href="#">Контакти</a></li>
-                </ul>
-            </nav>
+<header>
+    <div class="logo">KNIT MASTER</div>
+    <nav>
+        <a href="#women">Жінкам</a>
+        <a href="#men">Чоловікам</a>
+        <a href="#delivery">Доставка та оплата</a>
+        <a href="#cart">Кошик (<span id="cart-num" class="cart-count">0</span>)</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Тепло в кожній петлі</h1>
+    <p>Светри ручної роботи за вашими індивідуальними замірами</p>
+    <button class="btn" onclick="location.href='#women'">Переглянути колекцію</button>
+</section>
+
+<section id="women" class="section">
+    <h2>Для жінок</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="https://via.placeholder.com/300x400?text=Жіночий+светр" alt="Светр">
+            <h3>Оверсайз джемпер</h3>
+            <p>100% кашемір</p>
+            <p><strong>8500 грн</strong></p>
+            <button class="btn" onclick="addToCart()">В кошик</button>
         </div>
-    </header>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x400?text=Кардиган" alt="Кардиган">
+            <h3>Кардиган з косами</h3>
+            <p>Альпака та шовк</p>
+            <p><strong>6200 грн</strong></p>
+            <button class="btn" onclick="addToCart()">В кошик</button>
+        </div>
+    </div>
+</section>
 
-    <main class="container">
+<section id="men" class="section">
+    <h2>Для чоловіків</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="https://via.placeholder.com/300x400?text=Чоловічий+светр" alt="Светр">
+            <h3>Класичний светр</h3>
+            <p>Шерсть ягняти</p>
+            <p><strong>8800 грн</strong></p>
+            <button class="btn" onclick="addToCart()">В кошик</button>
+        </div>
+    </div>
+</section>
+
+<section id="delivery" class="section">
+    <h2>Доставка та оплата</h2>
+    <div class="info-block">
+        <h3>Доставка</h3>
+        <p>Ми відправляємо замовлення «Новою Поштою» по всій Україні. Термін виготовлення індивідуального замовлення — 10-14 днів.</p>
         
-        <section class="hero">
-            <h1>Handcrafted Premium Knitwear</h1>
-            <p>Сучасний погляд на класичні фактури. Кожен виріб — це поєднання преміальної пряжі, архітектурних форм та ручної роботи.</p>
-        </section>
+        <h3>Оплата</h3>
+        <ul>
+            <li>Передплата 50% перед початком роботи.</li>
+            <li>Решта — при отриманні (накладений платіж) або повна оплата на карту.</li>
+        </ul>
+    </div>
+</section>
 
-        <section class="portfolio-grid">
+<footer>
+    <p>&copy; 2026 Knit Master. Всі права захищені.</p>
+</footer>
 
-            <div class="portfolio-item">
-                <div class="image-container">
-                    <img src="1000003431.jpg" alt="Гірчично-жовтий в'язаний светр із візерунком коси">
-                </div>
-                <div class="item-info">
-                    <div class="item-category">Meticulous Detail</div>
-                    <h2 class="item-title">Светр "Honey Mustard"</h2>
-                    <p class="item-details">Об'ємні фактурні коси, вільний силует та м'яка текстура.</p>
-                </div>
-            </div>
+<script>
+    let count = 0;
+    function addToCart() {
+        count++;
+        document.getElementById('cart-num').innerText = count;
+        alert('Товар додано до кошика!');
+    }
+</script>
 
-            <div class="portfolio-item">
-                <div class="image-container">
-                    <img src="1000004033.jpg" alt="Молочно-білий текстурний светр зі складними аранами">
-                </div>
-                <div class="item-info">
-                    <div class="item-category">Heritage Pattern</div>
-                    <h2 class="item-title">Аранський светр</h2>
-                    <p class="item-details">Складні традиційні переплетення у молочно-білому виконанні.</p>
-                </div>
-            <
+</body>
+</html>
